@@ -1,0 +1,41 @@
+﻿<Page
+    x:Class="CoffeeUniversal.Pages.OptionalPackagesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeUniversal.Pages"
+    xmlns:controls="using:CoffeeUniversal.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <controls:PageTitleControl PageTitle="optional packages" AutomationProperties.AutomationId="PageTitle"/>
+
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,-20,19,0">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0" Visibility="Collapsed" HorizontalAlignment="Left" Margin="0,0,0,10" Content="Enumerate Optional Packages from Store" Click="Enumerate_Optional_Packages_From_Store"/>
+                    <ListView Grid.Row="1" x:Name="StoreOptionalPackagesListView" />
+                    <ListView Grid.Row="2" x:Name="DeployingOptionalPackagesListView" />
+                    <ListView Grid.Row="3"  x:Name="OptionalPackagesListView" />
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>

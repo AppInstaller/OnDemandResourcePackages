@@ -1,0 +1,62 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="CoffeeUniversal.Pages.SecondaryTilePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeUniversal.Pages"
+    xmlns:controls="using:CoffeeUniversal.Controls"
+    xmlns:helpers="using:CoffeeUniversal.Helpers"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <helpers:BoolToStringConverter x:Key="converter"/>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button
+                x:Name="backButton" Margin="19,19,39,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
+                Style="{StaticResource NavigationBackButtonNormalStyle}"
+                VerticalAlignment="Top" AutomationProperties.AutomationId="BackButton" />
+            <TextBlock 
+                x:Name="pageTitle" Text="{Binding Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+                IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="-12,-29,30,0"
+                AutomationProperties.AutomationId="PageTitle"/>
+        </Grid>
+
+        <ScrollViewer Grid.Row="1" Margin="20,-40,0,0" VerticalScrollBarVisibility="Auto" >
+            <Grid x:Name="contentGrid" HorizontalAlignment="Left" Width="270" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Image 
+                    Grid.Row="0" x:Name="tileImage" Width="270" Height="230" Source="{Binding Photo}" HorizontalAlignment="Left" 
+                    AutomationProperties.AutomationId="TileImage"/>
+                <TextBlock Grid.Row="1" Text="{Binding Details}" TextWrapping="Wrap" Width="270" Margin="0,8,0,0"/>
+                <Button 
+                    Grid.Row="2" Content="{Binding IsPinned, Converter={StaticResource converter}}" x:Name="pinButton" 
+                    Width="270" Click="pinUnpinButton_Click" Margin="0,8,0,0" HorizontalAlignment="Left"
+                    AutomationProperties.AutomationId="PinButton"/>
+            </Grid>
+        </ScrollViewer>
+        
+    </Grid>
+</Page>

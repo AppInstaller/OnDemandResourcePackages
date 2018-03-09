@@ -1,0 +1,9 @@
+DIRS = \
+    CoffeeBackgroundAudio \
+    CoffeeBackgroundEnergy \
+    CoffeeBackgroundWinRT \
+    CoffeeUniversal \
+    Coffeeutilities \
+    CoffeeWinRT \
+    CoffeeDirectX \
+    package \

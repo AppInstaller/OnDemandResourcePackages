@@ -1,0 +1,24 @@
+﻿<UserControl
+    x:Class="CoffeeUniversal.Controls.StoreProductControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeUniversal.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Height="auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        <Image Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="10,5" VerticalAlignment="Center" x:Name="packageLogo" Height="60" Width="60"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Package Name: TEST PACKAGE NAME GOES HERE" x:Name="packageName" />
+        <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="10,5" Content="Purchase DLC" />
+        <Button Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="10,5" Content="Install DLC" />
+    </Grid>
+</UserControl>

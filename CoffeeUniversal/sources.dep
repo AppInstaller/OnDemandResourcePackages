@@ -1,0 +1,9 @@
+PUBLIC_PASS0_CONSUMES= \
+    redist\mspartners\netfx45\core\binary_release|PASS0 \
+
+BUILD_PASS1_CONSUMES= \
+    base\appmodel\execmodel\apps\coffeeuniversal\coffeebackgroundaudio|PASS1 \
+    base\appmodel\execmodel\apps\coffeeuniversal\coffeebackgroundwinrt|PASS1 \
+    base\appmodel\execmodel\apps\coffeeuniversal\coffeeutilities|PASS1 \
+    base\appmodel\execmodel\apps\coffeeuniversal\coffeewinrt|PASS1 \
+

@@ -1,0 +1,608 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">ARM</Platform>
+    <ProjectGuid>{17036B6D-2162-45C9-BBB5-C4231083EB73}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CoffeeUniversal</RootNamespace>
+    <AssemblyName>CoffeeUniversal</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.17041.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>depappf.pfx</PackageCertificateKeyFile>
+    <AppxPackageSigningEnabled>true</AppxPackageSigningEnabled>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxBundlePlatforms>x86|x64</AppxBundlePlatforms>
+    <AppxBundle>Always</AppxBundle>
+    <UapDefaultAssetScale>100</UapDefaultAssetScale>
+    <PackageCertificateThumbprint>F3F612373D971C2BF675850E867A03BC583B20C2</PackageCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>false</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>false</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>false</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OptionalPackageControl.xaml.cs">
+      <DependentUpon>OptionalPackageControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PackageDeploymentControl.xaml.cs">
+      <DependentUpon>PackageDeploymentControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\StoreProductControl.xaml.cs">
+      <DependentUpon>StoreProductControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ExtensionsPage.xaml.cs">
+      <DependentUpon>ExtensionsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\DateFormatter.cs" />
+    <Compile Include="Helpers\BoolToStringConverter.cs" />
+    <Compile Include="Helpers\HexConverter.cs" />
+    <Compile Include="Helpers\UnhandleableException.cs" />
+    <Compile Include="Pages\CrashPage.xaml.cs">
+      <DependentUpon>CrashPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DesktopExtensionsPage.xaml.cs">
+      <DependentUpon>DesktopExtensionsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ExtendedExecutionPage.xaml.cs">
+      <DependentUpon>ExtendedExecutionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GpioPinsPage.xaml.cs">
+      <DependentUpon>GpioPinsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\I2cBusPage.xaml.cs">
+      <DependentUpon>I2cBusPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\IoTExtensionsPage.xaml.cs">
+      <DependentUpon>IoTExtensionsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MandatoryUpdatesPage.xaml.cs">
+      <DependentUpon>MandatoryUpdatesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MobileExtensionsPage.xaml.cs">
+      <DependentUpon>MobileExtensionsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OptionalPackagesPage.xaml.cs">
+      <DependentUpon>OptionalPackagesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SpiBusPage.xaml.cs">
+      <DependentUpon>SpiBusPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\XboxExtensionsPage.xaml.cs">
+      <DependentUpon>XboxExtensionsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\LocalizableStrings.cs" />
+    <Compile Include="Helpers\NavigationHelper.cs" />
+    <Compile Include="Helpers\ObservableDictionary.cs" />
+    <Compile Include="Controls\PageTitleControl.xaml.cs">
+      <DependentUpon>PageTitleControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\RecognizerHelper.cs" />
+    <Compile Include="Helpers\RelayCommand.cs" />
+    <Compile Include="Helpers\SerializableDictionary.cs" />
+    <Compile Include="Helpers\ShareHelper.cs" />
+    <Compile Include="Controls\StatusControl.xaml.cs">
+      <DependentUpon>StatusControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\StorageHelper.cs" />
+    <Compile Include="Helpers\SuspensionManager.cs" />
+    <Compile Include="Helpers\BackgroundTaskHelper.cs" />
+    <Compile Include="Helpers\ViewLifetimeController.cs" />
+    <Compile Include="Helpers\XamlInkRenderer.cs" />
+    <Compile Include="Helpers\XmlSerializerForDictionary.cs" />
+    <Compile Include="Pages\AppBarPage.xaml.cs">
+      <DependentUpon>AppBarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AppServicePage.xaml.cs">
+      <DependentUpon>AppServicePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BackgroundTransferPage.xaml.cs">
+      <DependentUpon>BackgroundTransferPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CalendarPage.xaml.cs">
+      <DependentUpon>CalendarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ContactsPage.xaml.cs">
+      <DependentUpon>ContactsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DisplayRequestPage.xaml.cs">
+      <DependentUpon>DisplayRequestPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EnergyPage.xaml.cs">
+      <DependentUpon>EnergyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FilePickersPage.xaml.cs">
+      <DependentUpon>FilePickersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InkPage.xaml.cs">
+      <DependentUpon>InkPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LaunchersPage.xaml.cs">
+      <DependentUpon>LaunchersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BackgroundAudioPage.xaml.cs">
+      <DependentUpon>BackgroundAudioPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BackgroundTaskPage.xaml.cs">
+      <DependentUpon>BackgroundTaskPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WebViewPage.xaml.cs">
+      <DependentUpon>WebViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CameraPage.xaml.cs">
+      <DependentUpon>CameraPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MapLocationPage.xaml.cs">
+      <DependentUpon>MapLocationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MediaPage.xaml.cs">
+      <DependentUpon>MediaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MemoryPage.xaml.cs">
+      <DependentUpon>MemoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MultiViewPage.xaml.cs">
+      <DependentUpon>MultiViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OrientationPage.xaml.cs">
+      <DependentUpon>OrientationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PublisherFolderPage.xaml.cs">
+      <DependentUpon>PublisherFolderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ResourcesPage.xaml.cs">
+      <DependentUpon>ResourcesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SecondaryTilePage.xaml.cs">
+      <DependentUpon>SecondaryTilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SecondaryViewPage.xaml.cs">
+      <DependentUpon>SecondaryViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SensorsPage.xaml.cs">
+      <DependentUpon>SensorsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SharePage.xaml.cs">
+      <DependentUpon>SharePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SpeechPage.xaml.cs">
+      <DependentUpon>SpeechPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StoragePage.xaml.cs">
+      <DependentUpon>StoragePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TilesPage.xaml.cs">
+      <DependentUpon>TilesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ToastsPage.xaml.cs">
+      <DependentUpon>ToastsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WebRequestsPage.xaml.cs">
+      <DependentUpon>WebRequestsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WinRTPage.xaml.cs">
+      <DependentUpon>WinRTPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\MenuItem.cs" />
+    <Compile Include="ViewModels\TilesViewModel.cs" />
+    <Compile Include="ViewModels\TileViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="depappf.pfx" />
+    <None Include="project.json" />
+    <Content Include="Assets\Scales\scale-400\scale-image.jpg" />
+    <Content Include="Assets\Scales\scale-500\scale-image.jpg" />
+    <Content Include="Assets\Share\AlienFile.wechat" />
+    <Content Include="Assets\Launchers\face.tif" />
+    <Content Include="Assets\Launchers\technicaldebts.jpg" />
+    <Content Include="Assets\Launchers\villainous.png" />
+    <Content Include="Assets\Tiles\Square310x310Logo.scale-100.png" />
+    <Content Include="Assets\Tiles\Square71x71Logo.scale-100.png" />
+    <Content Include="SamplePixelShader.cso" />
+    <Content Include="SampleVertexShader.cso" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Media\Ring04.wav" />
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\AppBar\espresso.jpg" />
+    <Content Include="Assets\AppBar\icon-black-espresso.png" />
+    <Content Include="Assets\AppBar\icon-black-cappuccino.png" />
+    <Content Include="Assets\AppBar\icon-black-americano.png" />
+    <Content Include="Assets\AppBar\icon-black-latte.png" />
+    <Content Include="Assets\AppBar\icon-white-espresso.png" />
+    <Content Include="Assets\AppBar\icon-white-cappuccino.png" />
+    <Content Include="Assets\AppBar\icon-white-americano.png" />
+    <Content Include="Assets\AppBar\icon-white-latte.png" />
+    <Content Include="Assets\Languages\ar-sa\TextFile1.txt" />
+    <Content Include="Assets\Languages\cs-cz\TextFile1.txt" />
+    <Content Include="Assets\Languages\de-de\TextFile1.txt" />
+    <Content Include="Assets\Languages\en-us\TextFile1.txt" />
+    <Content Include="Assets\Languages\es-es\TextFile1.txt" />
+    <Content Include="Assets\Languages\fr-fr\TextFile1.txt" />
+    <Content Include="Assets\Languages\he-il\TextFile1.txt" />
+    <Content Include="Assets\Languages\ru-ru\TextFile1.txt" />
+    <Content Include="Assets\Orientation\beans.jpg" />
+    <Content Include="Assets\Scales\scale-100\scale-image.jpg" />
+    <Content Include="Assets\Scales\scale-125\scale-image.jpg" />
+    <Content Include="Assets\Scales\scale-150\scale-image.jpg" />
+    <Content Include="Assets\Scales\scale-200\scale-image.jpg" />
+    <Content Include="Assets\Scales\scale-250\scale-image.jpg" />
+    <Content Include="Assets\Scales\scale-300\scale-image.jpg" />
+    <Content Include="Assets\SecondaryTiles\cappuccino.jpg" />
+    <Content Include="Assets\SecondaryTiles\espresso.jpg" />
+    <Content Include="Assets\SecondaryTiles\latte.jpg" />
+    <Content Include="Assets\Share\espresso_450x450.jpg" />
+    <Content Include="Assets\Tiles\BadgeLogo.scale-100.png" />
+    <Content Include="Assets\Toasts\icon-black-espresso.png" />
+    <Content Include="Assets\Toasts\icon-white-espresso.png" />
+    <Content Include="CoffeeCommands.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SimplePage.html" />
+    <Content Include="Assets\LockScreen\coffee_159x159_white.png" />
+    <Content Include="Assets\LockScreen\coffee_24x24_white.png" />
+    <Content Include="Assets\LockScreen\Gaggia.jpg" />
+    <Content Include="Assets\LockScreen\Pavoni.jpg" />
+    <Content Include="Assets\Media\Audio.mp3" />
+    <Content Include="Assets\Media\making-espresso_1280x720.wmv" />
+    <Content Include="Assets\Media\Ring01.wma" />
+    <Content Include="Assets\Media\Ring02.wma" />
+    <Content Include="Assets\Media\Ring03.wma" />
+    <Content Include="Assets\Orientation\espresso.jpg" />
+    <Content Include="Assets\Orientation\latte.jpg" />
+    <Content Include="Assets\Orientation\Gaggia.jpg" />
+    <Content Include="Assets\Orientation\cappuccino.jpg" />
+    <Content Include="Assets\Orientation\grinder.jpg" />
+    <Content Include="Assets\Share\file.b.png" />
+    <Content Include="Assets\Share\file.w.png" />
+    <Content Include="Assets\Share\text.b.png" />
+    <Content Include="Assets\Share\text.w.png" />
+    <Content Include="Assets\Share\uri.b.png" />
+    <Content Include="Assets\Share\uri.w.png" />
+    <Content Include="Assets\Tiles\Background_1024x768.png" />
+    <Content Include="Assets\Tiles\Logo.scale-100.png" />
+    <Content Include="Assets\Tiles\SmallLogo.scale-100.png" />
+    <Content Include="Assets\Tiles\SplashScreen.scale-240.png" />
+    <Content Include="Assets\Tiles\StoreLogo.scale-100.png" />
+    <Content Include="Assets\Tiles\SplashScreen.scale-100.png" />
+    <Content Include="Assets\Tiles\WideLogo.scale-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Controls\OptionalPackageControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\PageTitleControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\StatusControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\PackageDeploymentControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\StoreProductControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ExtensionsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\AppBarPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\AppServicePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\BackgroundTransferPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CalendarPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ContactsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\CrashPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\DesktopExtensionsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\DisplayRequestPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\EnergyPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ExtendedExecutionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\FilePickersPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\GpioPinsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\I2cBusPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\InkPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\IoTExtensionsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\LaunchersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\BackgroundAudioPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\BackgroundTaskPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MandatoryUpdatesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\OptionalPackagesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\WebViewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CameraPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MapLocationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MediaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MemoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MobileExtensionsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MultiViewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\OrientationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PublisherFolderPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ResourcesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\SecondaryTilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SecondaryViewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\SensorsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SharePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SpeechPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SpiBusPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\StoragePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TilesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ToastsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\WebRequestsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\WinRTPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\XboxExtensionsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CoffeeBackgroundAudio\CoffeeBackgroundAudio.csproj">
+      <Project>{03834a42-1047-4220-8c2f-155f25e35471}</Project>
+      <Name>CoffeeBackgroundAudio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CoffeeBackgroundWinRT\CoffeeBackgroundWinRT.csproj">
+      <Project>{1efc665a-8ca2-4f92-816f-e7e6ab969c5e}</Project>
+      <Name>CoffeeBackgroundWinRT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CoffeeDirectX\CoffeeDirectX.vcxproj">
+      <Project>{1332f0ca-3ebf-4619-9513-00363665342f}</Project>
+      <Name>CoffeeDirectX</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CoffeeUtilities\CoffeeUtilities.csproj">
+      <Project>{78b28f7f-95ce-43cf-9086-ac1fc36462b4}</Project>
+      <Name>CoffeeUtilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OptWinRT\OptWinRT.vcxproj">
+      <Project>{1c553641-5ac8-4bf1-9c29-45e858b303e1}</Project>
+      <Name>CoffeeOptionalPackageWinRT</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="WindowsDesktop, Version=10.0.17041.0">
+      <Name>Windows Desktop Extensions for the UWP</Name>
+    </SDKReference>
+    <SDKReference Include="WindowsIoT, Version=10.0.17041.0">
+      <Name>Windows IoT Extensions for the UWP</Name>
+    </SDKReference>
+    <SDKReference Include="WindowsMobile, Version=10.0.17041.0">
+      <Name>Windows Mobile Extensions for the UWP</Name>
+    </SDKReference>
+    <SDKReference Include="WindowsTeam, Version=10.0.17041.0">
+      <Name>Windows Team Extensions for the UWP</Name>
+    </SDKReference>
+    <SDKReference Include="Xbox, Version=10.0.17041.0">
+      <Name>Xbox One System Apps Extensions for the UWP %28Xbox, Version=10.0.17041.0%29</Name>
+    </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="OptWinRT, Version=255.255.255.255, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\OptWinRT.winmd</HintPath>
+    </Reference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+</Project>

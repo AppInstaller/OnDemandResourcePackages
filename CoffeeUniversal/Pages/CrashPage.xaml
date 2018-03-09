@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="CoffeeUniversal.Pages.CrashPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeUniversal.Pages"
+    xmlns:controls="using:CoffeeUniversal.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <controls:PageTitleControl Grid.Row="0" PageTitle="crash" AutomationProperties.AutomationId="PageTitle"/>
+
+        <StackPanel Grid.Row="1" x:Name="ContentRoot" Margin="19,0,0,0" Width="280" HorizontalAlignment="Left">
+            <TextBlock 
+                TextWrapping="Wrap" Width="280" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Text="NOTES: Throws an exception which Coffee deliberately allows to propagate out, causing the app to crash. Designed to test crash recovery."/>
+            <Button 
+                x:Name="crash" Content="crash this app" Width="280" Click="crash_Click" Margin="0,12,0,0"
+                AutomationProperties.AutomationId="CrashButton"/>            
+        </StackPanel>
+
+    </Grid>
+</Page>

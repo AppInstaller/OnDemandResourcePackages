@@ -1,0 +1,75 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="CoffeeUniversal.Pages.MediaPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeUniversal.Pages"
+    xmlns:controls="using:CoffeeUniversal.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <controls:PageTitleControl PageTitle="media" AutomationProperties.AutomationId="PageTitle"/>
+
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,-44,19,0" HorizontalAlignment="Left">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <StackPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="280">
+                <MediaElement
+                    x:Name="localVideo" Source="/Assets/Media/making-espresso_1280x720.wmv"
+                    AutoPlay="False" IsMuted="False" Volume="1.0" Stretch="Uniform" Visibility="Visible" 
+                    VerticalAlignment="Top" Width="280" Height="140" HorizontalAlignment="Left" IsLooping="True"
+                    AutomationProperties.AutomationId="LocalMediaElement"/>
+                <Grid Margin="0,2,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Button 
+                        x:Name="localPlay" Grid.Column="0" Content="&gt;" Click="localPlay_Click" IsEnabled="True" Width="139"
+                        AutomationProperties.AutomationId="LocalPlayButton"/>
+                    <Button 
+                        x:Name="localPause" Grid.Column="1" Content="||" Click="localPause_Click" IsEnabled="False" Width="139" Margin="2,0,0,0"
+                        AutomationProperties.AutomationId="LocalPauseButton"/>
+                </Grid>
+
+                <MediaElement
+                    x:Name="remoteVideo" Source="http://video.ch9.ms/ch9/4597/8db5a656-b173-4897-b2aa-e2075fb24597/windows10recap.mp4"
+                    AutoPlay="False" IsMuted="False" Volume="1.0" Stretch="Uniform" Visibility="Visible" 
+                    VerticalAlignment="Top" Width="280" Height="140" HorizontalAlignment="Left" IsLooping="True" Margin="0,2,0,0" 
+                    AutomationProperties.AutomationId="RemoteMediaElement"/>
+                <Grid Margin="0,2,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Button 
+                        x:Name="remotePlay" Grid.Column="0" Content="&gt;" Click="remotePlay_Click" IsEnabled="True" Width="139"
+                        AutomationProperties.AutomationId="RemotePlayButton"/>
+                    <Button 
+                        x:Name="remotePause" Grid.Column="1" Content="||" Click="remotePause_Click" IsEnabled="False" Width="139" Margin="2,0,0,0"
+                        AutomationProperties.AutomationId="RemotePauseButton"/>
+                </Grid>
+            </StackPanel>
+
+            <controls:StatusControl Grid.Row="2" x:Name="status" AutomationProperties.AutomationId="StatusControl"/>
+        </Grid>
+
+    </Grid>
+</Page>

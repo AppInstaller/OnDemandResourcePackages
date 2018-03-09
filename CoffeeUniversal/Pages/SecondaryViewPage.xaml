@@ -1,0 +1,25 @@
+﻿<Page
+    x:Class="CoffeeUniversal.Pages.SecondaryViewPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeUniversal.Pages"
+    xmlns:controls="using:CoffeeUniversal.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Background="{StaticResource ApplicationPageBackgroundThemeBrush}" x:Name="LayoutRoot" Margin="19,29,0,0">
+            <TextBlock x:Name="title" Width="280" HorizontalAlignment="Left" FontSize="36" Foreground="Orange"/>
+            <TextBlock
+                TextWrapping="Wrap" Width="280" HorizontalAlignment="Left" 
+                Text="NOTES: From here, on Desktop, you can (a) go to the main page, leaving this view open - or (b) go to the main page and close this view. On Mobile both options close this view. If the device has a hardware back button, this button also does (b). The task-switcher does (a)."/>
+            <Button 
+                x:Name="gotoMainPage" Content="goto main page" Click="gotoMainPage_Click" Width="280" HorizontalAlignment="Left" Margin="0,2,0,0"
+                AutomationProperties.AutomationId="GotoMainPageButton"/>
+            <Button 
+                x:Name="hideView" Content="hide this view" Click="hideView_Click"  Width="280" HorizontalAlignment="Left" Margin="0,2,0,0"
+                AutomationProperties.AutomationId="HideViewButton"/>
+        </StackPanel>
+    </Grid>
+</Page>

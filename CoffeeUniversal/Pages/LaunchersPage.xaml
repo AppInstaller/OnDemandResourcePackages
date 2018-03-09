@@ -1,0 +1,102 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="CoffeeUniversal.Pages.LaunchersPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeUniversal.Pages"
+    xmlns:controls="using:CoffeeUniversal.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="92"/>
+            <Setter Property="Height" Value="26"/>
+            <Setter Property="Margin" Value="0,0,2,2"/>
+            <Setter Property="Padding" Value="0.3"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="CharacterSpacing" Value="-30"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <controls:PageTitleControl Grid.Row="0" PageTitle="launchers" AutomationProperties.AutomationId="PageTitle"/>
+
+        <Grid x:Name="contentPanel" Grid.Row="1" Margin="12,-46,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="URI" Grid.Row="0" Grid.Column="0" Margin="0,4,0,-2" FontSize="11"/>
+            <Button x:Name="launchUri" Grid.Row="1" Grid.Column="0" Content="Http" Click="OnLaunchUri" AutomationProperties.AutomationId="LaunchUriButton"/>
+            <Button x:Name="launchBingMaps" Grid.Row="1" Grid.Column="1" Content="BingMaps" Click="OnLaunchBingMaps" AutomationProperties.AutomationId="LaunchBingMapsButton"/>
+            <Button x:Name="launchMailTo" Grid.Row="1" Grid.Column="2" Content="MailTo" Click="OnLaunchMailTo" AutomationProperties.AutomationId="LaunchMailToButton"/>
+
+            <Button x:Name="launchStore" Grid.Row="2" Grid.Column="0" Content="Store" Click="OnLaunchStore" AutomationProperties.AutomationId="LaunchStoreButton"/>
+            <Button x:Name="launchFallbackUri" Grid.Row="2" Grid.Column="1" Content="URI Fallback" Click="OnLaunchFallbackUri" AutomationProperties.AutomationId="LaunchFallbackUriButton"/>
+            <Button x:Name="launchUnsupportedUri" Grid.Row="2" Grid.Column="2" Content="Bad URI" Click="OnLaunchUnsupportedUri" AutomationProperties.AutomationId="LaunchUnsupportedUriButton"/>
+            
+            <Button x:Name="launchTargetPfn" Grid.Row="3" Grid.Column="0" Content="PFN-Cortana" Click="OnLaunchTargetPfn" AutomationProperties.AutomationId="LaunchTargetPfnButton"/>
+            <Button x:Name="launchUriForResultsInvalidPfn" Grid.Row="3" Grid.Column="1" Content="Bad PFN" Click="OnLaunchUriForResultsInvalidPfn" AutomationProperties.AutomationId="LaunchUriForResultsInvalidPfnButton"/>
+            <Button x:Name="launchTargetPfnUnsupportedUri" Grid.Row="3" Grid.Column="2"  Content="PFN+BadURI" Click="OnLaunchTargetPfnUnsupportedUri" AutomationProperties.AutomationId="LaunchTargetPfnUnsupportedUriButton"/>
+
+            <Button x:Name="launchSL80App" Grid.Row="4" Grid.Column="0"  Content="SL80 App" Click="OnLaunchSL80App" AutomationProperties.AutomationId="LaunchSL80AppButton"/>
+            <Button x:Name="launchSL81App" Grid.Row="4" Grid.Column="1" Content="SL81 App" Click="OnLaunchSL81App" AutomationProperties.AutomationId="LaunchSL81AppButton"/>
+
+            <!-- LaunchUriTargetMultiApp_8wekyb3d8bbwe -->
+            <TextBlock Text="Test app" Grid.Row="5" Grid.Column="0" Margin="0,4,0,-2" FontSize="11" />
+            <Button x:Name="launchUriForResults" Grid.Row="6" Grid.Column="0" Content="Results" Click="OnLaunchUriForResults" AutomationProperties.AutomationId="LaunchUriForResultsButton"/>
+            <Button x:Name="launchUriWithData" Grid.Row="6" Grid.Column="1" Content="Data" Click="OnLaunchUriWithData" AutomationProperties.AutomationId="LaunchUriWithDataButton"/>
+            <Button x:Name="launchUriForResultsWithData" Grid.Row="6" Grid.Column="2" Content="Results+Data" Click="OnLaunchUriForResultsWithData" AutomationProperties.AutomationId="LaunchUriForResultsWithDataButton"/>
+            <Button x:Name="launchUriForResultsUnsupportedProtocol" Grid.Row="7" Grid.Column="0" Content="Bad Protocol" Click="OnLaunchUriForResultsUnsupportedProtocol" AutomationProperties.AutomationId="LaunchUriForResultsUnsupportedProtocolButton"/>
+
+            <TextBlock Text="File + Folder" Grid.Row="8" Grid.Column="0" Margin="0,4,0,-2" FontSize="11"/>
+            <Button x:Name="launchFile" Grid.Row="9" Grid.Column="0" Content="File" Click="OnLaunchFile" AutomationProperties.AutomationId="LaunchFileButton"/>
+            <Button x:Name="launchFileTargetPfn" Grid.Row="9" Grid.Column="1" Content="File+PFN" Click="OnLaunchFileTargetPfn" AutomationProperties.AutomationId="LauncFileTargetPfnhButton"/>
+            <Button x:Name="launchFileUnsupported" Grid.Row="9" Grid.Column="2" Content="Bad File" Click="OnLaunchFileUnsupported" AutomationProperties.AutomationId="LaunchFileUnsupportedButton"/>
+
+            <Button x:Name="launchTargetPfnFileUnsupported" Grid.Row="10" Grid.Column="0" Content="PFN+BadFile" Click="OnLaunchTargetPfnFileUnsupported" AutomationProperties.AutomationId="LaunchTargetPfnFileUnsupportedButton"/>
+            <Button x:Name="launchFileFallbackUri" Grid.Row="10" Grid.Column="1" Content="File Fallback" Click="OnLaunchFileFallbackUri" AutomationProperties.AutomationId="LaunchFileFallbackUriButton"/>
+            <Button x:Name="launchFileNFQ" Grid.Row="10" Grid.Column="2" Content="NFQ" Click="OnLaunchFileNFQ" AutomationProperties.AutomationId="LaunchFileNFQButton"/>
+
+            <Button x:Name="launchFileNFQPicker" Grid.Row="11" Grid.Column="0" Content="NFQ Picker" Click="OnLaunchFileNFQPicker" AutomationProperties.AutomationId="LaunchFileNFQPickerButton"/>
+            <Button x:Name="launchFolder" Grid.Row="11" Grid.Column="1" Content="Folder" Click="OnLaunchFolder" AutomationProperties.AutomationId="LaunchFolderButton"/>
+            <Button x:Name="launchFolderSelectedItems" Grid.Row="11" Grid.Column="2" Content="Selected" Click="OnLaunchFolderSelectedItems" AutomationProperties.AutomationId="LaunchFolderSelectedItemsButton"/>   
+            
+            <Button x:Name="launchUriSharedStorageToken" Grid.Row="12" Grid.Column="0"  Content="File Token" Click="OnLaunchUriSharedStorageToken"  AutomationProperties.AutomationId="LaunchUriSharedStorageTokenButton"/>
+
+        </Grid>
+
+        <controls:StatusControl Grid.Row="2" x:Name="status" Margin="12,0,12,0" AutomationProperties.AutomationId="StatusControl"/>
+
+    </Grid>
+</Page>

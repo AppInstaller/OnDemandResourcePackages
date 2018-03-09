@@ -1,0 +1,60 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="CoffeeUniversal.Pages.PublisherFolderPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeUniversal.Pages"
+    xmlns:controls="using:CoffeeUniversal.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <controls:PageTitleControl PageTitle="pub folder" AutomationProperties.AutomationId="PageTitle"/>
+
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,-20,19,0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+        
+			<TextBlock 
+                Grid.Row="0" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="80" Width="280"
+			    Text="NOTES: &quot;Files in shared folder&quot; shows an updated list of all the files in the shared publisher folder." />
+        
+			<TextBlock Grid.Row="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Files in shared folder" VerticalAlignment="Top" Margin="0,4,0,0"/>
+			<TextBox 
+                Grid.Row="2" x:Name="files" HorizontalAlignment="Left" Height="104" TextWrapping="Wrap" 
+				VerticalAlignment="Top" Width="280" ScrollViewer.VerticalScrollBarVisibility="Visible"
+                AutomationProperties.AutomationId="FilesTextBox"/>
+                   
+			<Button 
+                Grid.Row="3" x:Name="createNewFile" Content="Create new file in shared folder" HorizontalAlignment="Left" Margin="0,4,0,4"
+				VerticalAlignment="Top" Width="280" Click="createNewFile_Click"
+                AutomationProperties.AutomationId="CreateNewFileButton"/>
+			<Button 
+                Grid.Row="4" x:Name="deleteAllFiles" Content="Delete all files in shared folder" HorizontalAlignment="Left" 
+				VerticalAlignment="Top" Width="280" Click="deleteAllFiles_Click"
+                AutomationProperties.AutomationId="DeleteAllFilesButton"/>
+
+            <controls:StatusControl Grid.Row="5" Margin="0,6,0,0" x:Name="status" HeaderVisibility="Visible" AutomationProperties.AutomationId="StatusControl"/>
+
+        </Grid>
+        
+    </Grid>
+</Page>

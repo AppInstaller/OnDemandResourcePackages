@@ -1,0 +1,119 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="CoffeeUniversal.Pages.MemoryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeUniversal.Pages"
+    xmlns:controls="using:CoffeeUniversal.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <controls:PageTitleControl PageTitle="memory" AutomationProperties.AutomationId="PageTitle"/>
+
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,-46,19,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="18"/>
+                <ColumnDefinition Width="170"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="3" Text="core info" FontSize="18" Margin="0,0,0,-4"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" FontSize="14" Text="usage limit"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" FontSize="14" Text="current usage"/>
+            <TextBlock Grid.Row="3" Grid.Column="1" FontSize="14" Text="usage level"/>
+
+            <TextBlock Grid.Row="4" Grid.ColumnSpan="3" Text="app report" FontSize="18" Margin="0,0,0,-4"/>
+            <TextBlock Grid.Row="5" Grid.Column="1" FontSize="14" Text="commit limit"/>
+            <TextBlock Grid.Row="6" Grid.Column="1" FontSize="14" Text="private commit"/>
+            <TextBlock Grid.Row="7" Grid.Column="1" FontSize="14" Text="peak private"/>
+            <TextBlock Grid.Row="8" Grid.Column="1" FontSize="14" Text="total commit"/>
+
+            <TextBlock Grid.Row="9" Grid.ColumnSpan="3" Text="process report" FontSize="18" Margin="0,0,0,-4"/>
+            <TextBlock Grid.Row="10" Grid.Column="1" FontSize="14" Text="private working set"/>
+            <TextBlock Grid.Row="11" Grid.Column="1" FontSize="14" Text="total working set"/>
+
+            <TextBlock Grid.Row="12" Grid.ColumnSpan="3" Text="diagnostics report" FontSize="18" Margin="0,0,0,-4"/>
+            <TextBlock Grid.Row="13" Grid.Column="1" FontSize="14" Text="virtual memory"/>
+            <TextBlock Grid.Row="14" Grid.Column="1" FontSize="14" Text="working set"/>
+
+            <TextBlock 
+                Grid.Row="1" Grid.Column="2" x:Name="usageLimitText" FontSize="14" Foreground="{StaticResource ApplicationForegroundThemeBrush}"
+                AutomationProperties.AutomationId="UsageLimitTextBlock"/>
+            <TextBlock 
+                Grid.Row="2" Grid.Column="2" x:Name="usageText" FontSize="14" Foreground="{StaticResource ApplicationForegroundThemeBrush}"
+                AutomationProperties.AutomationId="UsageTextBlock"/>
+            <TextBlock 
+                Grid.Row="3" Grid.Column="2" x:Name="usageLevelText" FontSize="14" Foreground="{StaticResource ApplicationForegroundThemeBrush}"
+                AutomationProperties.AutomationId="UsageLevelTextBlock"/>
+
+            <TextBlock 
+                Grid.Row="5" Grid.Column="2" x:Name="commitLimitText" FontSize="14" Foreground="{StaticResource ApplicationForegroundThemeBrush}"
+                AutomationProperties.AutomationId="CommitLimitTextBlock"/>
+            <TextBlock 
+                Grid.Row="6" Grid.Column="2" x:Name="privateCommitText" FontSize="14" Foreground="{StaticResource ApplicationForegroundThemeBrush}"
+                AutomationProperties.AutomationId="PrivateCommitTextBlock"/>
+            <TextBlock 
+                Grid.Row="7" Grid.Column="2" x:Name="peakPrivateText" FontSize="14" Foreground="{StaticResource ApplicationForegroundThemeBrush}"
+                AutomationProperties.AutomationId="PeakPrivateTextBlock"/>
+            <TextBlock 
+                Grid.Row="8" Grid.Column="2" x:Name="totalCommitText" FontSize="14" Foreground="{StaticResource ApplicationForegroundThemeBrush}"
+                AutomationProperties.AutomationId="TotalCommitTextBlock"/>
+
+            <TextBlock 
+                Grid.Row="10" Grid.Column="2" x:Name="privateSetText" FontSize="14" Foreground="{StaticResource ApplicationForegroundThemeBrush}"
+                AutomationProperties.AutomationId="PrivateSetTextBlock"/>
+            <TextBlock 
+                Grid.Row="11" Grid.Column="2" x:Name="totalSetText" FontSize="14" Foreground="{StaticResource ApplicationForegroundThemeBrush}"
+                AutomationProperties.AutomationId="TotalSetTextBlock"/>
+
+            <TextBlock 
+                Grid.Row="13" Grid.Column="2" x:Name="virtualMemoryText" FontSize="14" Foreground="{StaticResource ApplicationForegroundThemeBrush}"
+                AutomationProperties.AutomationId="VirtualMemoryTextBlock"/>
+            <TextBlock 
+                Grid.Row="14" Grid.Column="2" x:Name="workingSetText" FontSize="14" Foreground="{StaticResource ApplicationForegroundThemeBrush}"
+                AutomationProperties.AutomationId="WorkingSetTextBlock"/>
+
+            <StackPanel Grid.Row="15" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="0,6,0,0">
+                <TextBox x:Name="mb" InputScope="Number" Text="10" Width="20" HorizontalAlignment="Left"/>
+                <TextBlock Text="MB" Width="30" VerticalAlignment="Center"/>
+                <Button Width="90" x:Name="consume" Content="consume" Click="consume_Click" AutomationProperties.AutomationId="ConsumeButton"/>
+                <Button Width="90" x:Name="release" Content="release" Margin="4,0,0,0" Click="release_Click" AutomationProperties.AutomationId="ReleaseButton"/>
+			</StackPanel>
+
+            <controls:StatusControl Grid.Row="16" Grid.ColumnSpan="3" Margin="0,6,0,0" x:Name="status" AutomationProperties.AutomationId="StatusControl"/>
+
+        </Grid>
+
+    </Grid>
+</Page>

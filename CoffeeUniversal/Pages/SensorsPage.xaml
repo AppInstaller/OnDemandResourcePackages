@@ -1,0 +1,138 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="CoffeeUniversal.Pages.SensorsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeUniversal.Pages"
+    xmlns:controls="using:CoffeeUniversal.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <controls:PageTitleControl PageTitle="sensors" AutomationProperties.AutomationId="PageTitle"/>
+
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,-30,19,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+                        
+            <TextBlock Grid.Row="0" Text="accelerometer" HorizontalAlignment="Left"/>
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+				<Button 
+                    x:Name="startAccelerometer" Width="138" Content="start" Click="startAccelerometer_Click" HorizontalAlignment="Left" 
+                    IsEnabled="False" AutomationProperties.AutomationId="StartAccelerometerButton"/>                      
+				<Button 
+                    x:Name="stopAccelerometer" Width="138" Content="stop" Click="stopAccelerometer_Click" HorizontalAlignment="Left" 
+                    IsEnabled="False" AutomationProperties.AutomationId="StopAccelerometerButton" Margin="4,0,0,0"/>
+			</StackPanel>
+            
+            <Grid Grid.Row="2" Margin="0,4,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="X:" HorizontalAlignment="Left" />
+                <TextBlock 
+                    Grid.Column="1" x:Name="accelerometerX" HorizontalAlignment="Left" Foreground="Green" 
+                    AutomationProperties.AutomationId="AccelerometerXTextBlock"/>
+                <TextBlock Grid.Column="2" Text="Y:" HorizontalAlignment="Left" />
+                <TextBlock 
+                    Grid.Column="3" x:Name="accelerometerY" HorizontalAlignment="Left" Foreground="Green" 
+                    AutomationProperties.AutomationId="AccelerometerYTextBlock"/>
+                <TextBlock Grid.Column="4" Text="Z:" HorizontalAlignment="Left" />
+                <TextBlock 
+                    Grid.Column="5" x:Name="accelerometerZ" HorizontalAlignment="Left" Foreground="Green" 
+                    AutomationProperties.AutomationId="AccelerometerZTextBlock"/>
+            </Grid>
+
+            <TextBlock Grid.Row="3" Text="gyrometer" HorizontalAlignment="Left" Margin="0,12,0,0"/>
+            <StackPanel Grid.Row="4" Orientation="Horizontal">
+                <Button 
+                    x:Name="startGyrometer" Width="138" Content="start" Click="startGyrometer_Click"  HorizontalAlignment="Left" 
+                    IsEnabled="False" AutomationProperties.AutomationId="StartGyrometerButton"/>
+                <Button 
+                    x:Name="stopGyrometer" Width="138" Content="stop" Click="stopGyrometer_Click"  HorizontalAlignment="Left"
+                    IsEnabled="False" Margin="4,0,0,0" AutomationProperties.AutomationId="StopGyrometerButton"/>
+            </StackPanel>
+            
+            <Grid Grid.Row="5" Margin="0,4,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="X:" HorizontalAlignment="Left" />
+                <TextBlock 
+                    Grid.Column="1" x:Name="gyrometerX" HorizontalAlignment="Left" Foreground="Red" 
+                    AutomationProperties.AutomationId="GyrometerXTextBlock"/>
+                <TextBlock Grid.Column="2" Text="Y:" HorizontalAlignment="Left" />
+                <TextBlock 
+                    Grid.Column="3" x:Name="gyrometerY" HorizontalAlignment="Left" Foreground="Red" 
+                    AutomationProperties.AutomationId="GyrometerYTextBlock"/>
+                <TextBlock Grid.Column="4" Text="Z:" HorizontalAlignment="Left" />
+                <TextBlock 
+                    Grid.Column="5" x:Name="gyrometerZ" HorizontalAlignment="Left" Foreground="Red" 
+                    AutomationProperties.AutomationId="GyrometerZTextBlock"/>
+            </Grid>
+
+            <TextBlock Grid.Row="6" Text="compass" HorizontalAlignment="Left" Margin="0,12,0,0"/>
+            <StackPanel Grid.Row="7" Orientation="Horizontal">
+                <Button 
+                    x:Name="startCompass" Width="138" Content="start" Click="startCompass_Click"  HorizontalAlignment="Left" 
+                    IsEnabled="False" AutomationProperties.AutomationId="StartCompassButton"/>
+                <Button 
+                    x:Name="stopCompass" Width="138" Content="stop" Click="stopCompass_Click"  HorizontalAlignment="Left" 
+                    IsEnabled="False" Margin="4,0,0,0" AutomationProperties.AutomationId="StopCompassButton"/>
+            </StackPanel>
+            
+            <Grid Grid.Row="8" Margin="0,4,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="84"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="84"/>
+                    <ColumnDefinition Width="60"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="true north:" HorizontalAlignment="Left" />
+                <TextBlock 
+                    Grid.Column="1" x:Name="trueNorth" HorizontalAlignment="Left" Foreground="DarkCyan"
+                    AutomationProperties.AutomationId="TrueNorthTextBlock"/>
+                <TextBlock Grid.Column="2" Text="mag north:" HorizontalAlignment="Left" />
+                <TextBlock 
+                    Grid.Column="3" x:Name="magNorth" HorizontalAlignment="Left" Foreground="DarkCyan"
+                    AutomationProperties.AutomationId="MagNorthTextBlock"/>
+            </Grid>
+
+            <controls:StatusControl Grid.Row="9" Margin="0,6,0,0" x:Name="status" HeaderVisibility="Visible" AutomationProperties.AutomationId="StatusControl"/>
+        </Grid>
+        
+    </Grid>
+</Page>

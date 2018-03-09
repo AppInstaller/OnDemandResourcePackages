@@ -1,0 +1,62 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="CoffeeUniversal.Pages.MapLocationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeUniversal.Pages"
+    xmlns:controls="using:CoffeeUniversal.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <controls:PageTitleControl PageTitle="location" AutomationProperties.AutomationId="PageTitle"/>
+
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="19,-30,19,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <maps:MapControl 
+                x:Name="map" Grid.Row="0" Width="280" Height="200" HorizontalAlignment="Left" Loaded="mapLoaded" 
+                AutomationProperties.AutomationId="MapControl"/>
+
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,2,0,0">
+                <TextBlock Text="to" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                <TextBox x:Name="targetText" Width="160" KeyDown="targetText_KeyDown" AutomationProperties.AutomationId="TargetTextBox"/>
+                <Button 
+                    x:Name="getRoute" Content="directions" Click="getRoute_Click" Width="98" Margin="2,0,0,0" HorizontalAlignment="Left"
+                    AutomationProperties.AutomationId="GetRouteButton"/>
+            </StackPanel>
+            
+            <ListBox 
+                x:Name="routeList" Grid.Row="2" Margin="0,2,0,0" Width="280" HorizontalAlignment="Left" Height="100"
+                AutomationProperties.AutomationId="RouteListBox">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock 
+                            Text="{Binding}" FontSize="12" TextWrapping="Wrap"
+                            Foreground="{StaticResource ApplicationForegroundThemeBrush}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ListBox>
+
+            <controls:StatusControl Grid.Row="3" Margin="0,6,0,0" x:Name="status" AutomationProperties.AutomationId="StatusControl"/>
+        </Grid>
+        
+    </Grid>
+</Page>

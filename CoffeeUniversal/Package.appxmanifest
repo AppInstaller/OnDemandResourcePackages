@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities" IgnorableNamespaces="uap mp rescap">
+  <Identity Name="29270depappf.CaffeMacchiato" Publisher="CN=066DE2AA-54DF-41B3-8BE8-3CBF6D3088A7" Version="4.0.0.0" />
+  <mp:PhoneIdentity PhoneProductId="ad307d8c-f0ba-4eed-839b-70562454db15" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Properties>
+    <DisplayName>Caffe Macchiato</DisplayName>
+    <PublisherDisplayName>depappf</PublisherDisplayName>
+    <Logo>Assets\Tiles\StoreLogo.png</Logo>
+  </Properties>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.16299.0" MaxVersionTested="10.0.16299.0" />
+  </Dependencies>
+  <Resources>
+    <Resource Language="en-us" />
+    <Resource Language="ar-sa" />
+    <Resource Language="cs-cz" />
+    <Resource Language="de-de" />
+    <Resource Language="es-es" />
+    <Resource Language="fr-fr" />
+    <Resource Language="he-il" />
+    <Resource Language="ru-ru" />
+  </Resources>
+  <Applications>
+    <Application Id="CoffeeUniversal" Executable="CoffeeUniversal.exe" EntryPoint="CoffeeUniversal.App">
+      <uap:VisualElements DisplayName="Caffe Macchiato" Square150x150Logo="Assets\Tiles\Logo.png" Square44x44Logo="Assets\Tiles\SmallLogo.png" Description="CoffeeUniversal" BackgroundColor="transparent">
+        <uap:SplashScreen Image="Assets\Tiles\SplashScreen.png" BackgroundColor="#3A1F08" />
+        <uap:LockScreen Notification="badge" BadgeLogo="Assets\Tiles\BadgeLogo.png" />
+        <uap:DefaultTile Wide310x150Logo="Assets\Tiles\WideLogo.png" Square71x71Logo="Assets\Tiles\Square71x71Logo.png" Square310x310Logo="Assets\Tiles\Square310x310Logo.png">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square310x310Logo" />
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile>
+      </uap:VisualElements>
+      <Extensions>
+        <uap:Extension Category="windows.protocol">
+          <uap:Protocol Name="http" />
+        </uap:Extension>
+        <uap:Extension Category="windows.protocol">
+          <uap:Protocol Name="https" />
+        </uap:Extension>
+        <uap:Extension Category="windows.protocol">
+          <uap:Protocol Name="coffeeapp">
+            <uap:Logo>Assets\Tiles\Logo.png</uap:Logo>
+            <uap:DisplayName>CoffeeUniversal</uap:DisplayName>
+          </uap:Protocol>
+        </uap:Extension>
+        <Extension Category="windows.backgroundTasks" EntryPoint="CoffeeBackgroundWinRT.CoffeeBackgroundAppTask">
+          <BackgroundTasks>
+            <Task Type="systemEvent" />
+            <Task Type="pushNotification" />
+          </BackgroundTasks>
+        </Extension>
+        <Extension Category="windows.backgroundTasks" EntryPoint="CoffeeBackgroundWinRT.CoffeeBackgroundTimeZoneTask">
+          <BackgroundTasks>
+            <Task Type="systemEvent" />
+            <Task Type="pushNotification" />
+          </BackgroundTasks>
+        </Extension>
+        <Extension Category="windows.backgroundTasks" EntryPoint="CoffeeBackgroundAudio.CoffeeBackgroundAudioTask">
+          <BackgroundTasks>
+            <Task Type="audio" />
+          </BackgroundTasks>
+        </Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <uap:Capability Name="musicLibrary" />
+    <uap:Capability Name="videosLibrary" />
+    <uap:Capability Name="picturesLibrary" />
+    <uap:Capability Name="contacts" />
+    <uap:Capability Name="appointments" />
+    <DeviceCapability Name="microphone" />
+    <DeviceCapability Name="location" />
+    <DeviceCapability Name="webcam" />
+  </Capabilities>
+  <Extensions>
+    <Extension Category="windows.publisherCacheFolders">
+      <PublisherCacheFolders>
+        <Folder Name="CoffeeFolder" />
+      </PublisherCacheFolders>
+    </Extension>
+    <Extension Category="windows.activatableClass.inProcessServer">
+      <InProcessServer>
+        <Path>CLRHost.dll</Path>
+        <ActivatableClass ActivatableClassId="CoffeeBackgroundAudio.PlaylistManager" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="CoffeeBackgroundAudio.CoffeeBackgroundAudioTask" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="CoffeeBackgroundWinRT.CoffeeBackgroundTask" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="CoffeeWinRT.StringHelper" ThreadingModel="both" />
+      </InProcessServer>
+    </Extension>
+  </Extensions>
+</Package>

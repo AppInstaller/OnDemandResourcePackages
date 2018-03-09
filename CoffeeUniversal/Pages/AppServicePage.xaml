@@ -1,0 +1,66 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="CoffeeUniversal.Pages.AppServicePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeUniversal.Pages"
+    xmlns:controls="using:CoffeeUniversal.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <controls:PageTitleControl PageTitle="app service" AutomationProperties.AutomationId="PageTitle"/>
+
+        <TextBlock 
+            Grid.Row="1" TextWrapping="Wrap" Width="280" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="19,-19,0,0"
+            Text="NOTES: First install the CalcService app and run it at least once. Then come back to Coffee: enter an integer value, and tap the button below to activate that service."/>
+
+        <Grid Grid.Row="2" Margin="19,12,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="140"/>
+                <ColumnDefinition Width="140"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="enter a number" Width="280" HorizontalAlignment="Left" Margin="0,0,0,-2"/>
+            <TextBox 
+                Grid.Row="1" Grid.Column="0"  x:Name="input" Text="3" Width="138" HorizontalAlignment="Left" InputScope="Number" Margin="0,0,2,0"
+                AutomationProperties.AutomationId="InputTextBox"/>
+
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="result" Width="280" HorizontalAlignment="Left" Margin="0,0,0,-2"/>
+            <TextBox 
+                Grid.Row="1" Grid.Column="1"  x:Name="result" Width="138" HorizontalAlignment="Left" InputScope="Number" IsReadOnly="True"
+                AutomationProperties.AutomationId="ResultTextBox"/>
+
+            <Button 
+                Grid.Row="2" Grid.ColumnSpan="2" Margin="0,2,0,0" x:Name="callAppService" Click="callAppService_Click" Content="call appservice" Width="280" 
+                HorizontalAlignment="Left" AutomationProperties.AutomationId="CallAppServiceButton"/>
+            <Button 
+                Grid.Row="3" Grid.ColumnSpan="2" Margin="0,2,0,0" x:Name="closeAppService" Click="closeAppService_Click" Content="close appservice" Width="280" 
+                HorizontalAlignment="Left" AutomationProperties.AutomationId="CloseAppServiceButton" IsEnabled="False"/>
+        </Grid>
+
+        <controls:StatusControl Grid.Row="3" Margin="19,0,0,0" x:Name="status" HeaderVisibility="Visible" AutomationProperties.AutomationId="StatusControl"/>
+
+    </Grid>
+
+</Page>

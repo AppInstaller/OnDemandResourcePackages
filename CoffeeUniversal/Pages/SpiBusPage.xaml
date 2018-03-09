@@ -1,0 +1,85 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="CoffeeUniversal.Pages.SpiBusPage"
+    xmlns:controls="using:CoffeeUniversal.Controls"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeUniversal.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <CollectionViewSource x:Name="cvsModeItems" IsSourceGrouped="False"/>
+
+        <DataTemplate x:Key="listViewItemTemplate">
+            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock 
+                        Text="{Binding name}" Style="{StaticResource BaseTextBlockStyle}" TextWrapping="Wrap" Width="50" VerticalAlignment="Center"
+                        AutomationProperties.AutomationId="NameTextBlock"/>
+                    <Button Content="Activate" Click="activate_Click" Width="130" AutomationProperties.AutomationId="ActivateButton"/>
+                    <Button Content="Deactivate" Click="deactivate_Click" Width="100" AutomationProperties.AutomationId="DeactivateButton"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock TextWrapping="Wrap" Text="Frequency:" VerticalAlignment="Center" Width="170" FontSize="12"/>
+                    <TextBox 
+                        Width="110" Text="{Binding frequency, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxHeight="50" TextWrapping="Wrap" 
+                        TextChanged="numeric_TextChanged" AutomationProperties.AutomationId="FrequencyTextBox"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <TextBlock TextWrapping="Wrap" Text="CS Line:" VerticalAlignment="Center" Width="170" FontSize="12"/>
+                    <TextBox 
+                        Width="110" Text="{Binding chipSelect, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxHeight="50" TextWrapping="Wrap" 
+                        TextChanged="numeric_TextChanged" AutomationProperties.AutomationId="ChipSelectTextBox"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <TextBlock Margin="0,0,0,0" TextWrapping="NoWrap" Text="Mode (CPOL/CPHA)" VerticalAlignment="Center" Width="170" FontSize="12"/>
+                    <ComboBox 
+                        Width="110" SelectedItem="{Binding mode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                        ItemsSource="{Binding Source={StaticResource cvsModeItems}}" AutomationProperties.AutomationId="ModeComboBox"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox 
+                        Text="{Binding write, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxHeight="50" Width="120" TextWrapping="Wrap"
+                        AutomationProperties.AutomationId="WriteTextBox"/>
+                    <Button Content="Write" Click="write_Click" Width="160" AutomationProperties.AutomationId="WriteButton"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox 
+                        Text="{Binding transfer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxHeight="50" Width="120" TextWrapping="Wrap"
+                        AutomationProperties.AutomationId="TransferTextBox"/>
+                    <Button Content="Transfer" Click="transfer_Click" Width="160" AutomationProperties.AutomationId="TransferButton"/>
+                </StackPanel>
+                <Button Content="Accelerometer Query" Width="280" Height="100" Click="accelerometer_Click" AutomationProperties.AutomationId="AccelerometerButton"/>
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <controls:PageTitleControl PageTitle="spi bus" AutomationProperties.AutomationId="PageTitle"/>
+
+        <StackPanel Orientation="vertical" Grid.Row="1">
+            <GridView x:Name="gridView" ItemsSource="{Binding}" 
+                     ItemTemplate="{StaticResource listViewItemTemplate}" SelectionMode="None" IsItemClickEnabled="False" IsActiveView="False" 
+              Grid.Row="1" Margin="20,-30,0,0" Width="300" HorizontalAlignment="Left">
+                <Style TargetType="ListBoxItem"/>
+            </GridView>
+            <controls:StatusControl Grid.Row="2" Margin="20,6,0,0" x:Name="status" HeaderVisibility="Visible" AutomationProperties.AutomationId="StatusControl"/>
+        </StackPanel>
+
+    </Grid>
+</Page>
+    

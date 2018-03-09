@@ -1,0 +1,79 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="CoffeeUniversal.Pages.WebViewPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeUniversal.Pages"
+    xmlns:controls="using:CoffeeUniversal.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    SizeChanged="pageRoot_SizeChanged">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <controls:PageTitleControl x:Name="headerRow" PageTitle="webview" AutomationProperties.AutomationId="PageTitle"/>
+
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,-30,19,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" x:Name="remoteLabel" Text="remote page" Style="{StaticResource BodyTextBlockStyle}"  />
+            <Border 
+                x:Name="remoteBorder" Grid.Row="1" BorderThickness="2" BorderBrush="{StaticResource AppBarBorderThemeBrush}" 
+                HorizontalAlignment="Left" VerticalAlignment="Top">
+                <WebView 
+                    x:Name="remoteWebView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                    AutomationProperties.AutomationId="RemoteWebView"/>
+            </Border>
+            
+            <TextBlock Grid.Row="2" x:Name="localLabel" Text="local page" Style="{StaticResource BodyTextBlockStyle}" Margin="0,12,0,0"/>
+
+            <Grid Grid.Row="3" Margin="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Border 
+                    Grid.Row="0" Grid.ColumnSpan="3" BorderThickness="2" x:Name="localBorder"
+                    HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="{StaticResource AppBarBorderThemeBrush}">
+                    <WebView 
+                        x:Name="localWebView" Height="120" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                        AutomationProperties.AutomationId="LocalWebView"/>
+                </Border>
+
+                <Grid Grid.Row="1">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="100"/>
+						<ColumnDefinition Width="100"/>
+						<ColumnDefinition Width="80"/>
+					</Grid.ColumnDefinitions>
+
+					<TextBlock 
+						Grid.Column="0" Text="app to script" VerticalAlignment="Center" Margin="0,2,0,0" FontSize="15" HorizontalAlignment="Left" />
+					<TextBox 
+						Grid.Column="1" x:Name="appToScript" Width="98" Text="espresso!" Margin="0,2,0,0" HorizontalAlignment="Left"
+                        AutomationProperties.AutomationId="AppToScriptTextBox"/>
+					<Button 
+						Grid.Column="2" x:Name="InvokeScript" Content="invoke" Click="InvokeScript_Click" Margin="2,2,0,0" Width="78"
+                        AutomationProperties.AutomationId="InvokeScriptButton"/>
+                </Grid>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Page>

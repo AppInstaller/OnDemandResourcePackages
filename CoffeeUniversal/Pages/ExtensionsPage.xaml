@@ -1,0 +1,46 @@
+﻿<Page
+    x:Class="CoffeeUniversal.Pages.ExtensionsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeUniversal.Pages"
+    xmlns:controls="using:CoffeeUniversal.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <controls:PageTitleControl Grid.Row="0" PageTitle="Extensions" AutomationProperties.AutomationId="PageTitle"/>
+
+        <StackPanel Grid.Row="1" x:Name="ContentRoot" Margin="20,0,0,0" Width="280" HorizontalAlignment="Left">
+            <TextBlock 
+                TextWrapping="Wrap" Width="280" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Text="NOTES: This page allows you to choose a platform extension to test."/>
+
+            <Button 
+                x:Name="DesktopExtensionPage" Content="Desktop Extension" Click="DesktopPage_Click" Width="280" 
+                AutomationProperties.AutomationId="DesktopExtensionPageButton"/>
+            <Button 
+                x:Name="MobileExtensionPage" Content="Mobile Extension" Click="MobilePage_Click" Width="280" Margin="0,4,0,0"
+                AutomationProperties.AutomationId="MobileExtensionPageButton"/>
+            <Button 
+                x:Name="XboxExtensionPage" Content="Xbox Extension" Click="XboxPage_Click" Width="280" Margin="0,4,0,0"
+                AutomationProperties.AutomationId="XboxExtensionPageButton"/>
+            <Button
+                x:Name="IoTExtensionPage" Content="IoT Extension" Click="IoTPage_Click" Width="280" Margin="0,4,0,0"
+                AutomationProperties.AutomationId="IoTExtensionPageButton"/>
+
+        </StackPanel>
+
+    </Grid>
+</Page>
+

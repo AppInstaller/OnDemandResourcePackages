@@ -1,0 +1,96 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="CoffeeUniversal.Pages.EnergyPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeUniversal.Pages"
+    xmlns:controls="using:CoffeeUniversal.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <controls:PageTitleControl PageTitle="energy" AutomationProperties.AutomationId="PageTitle"/>
+
+        <TextBlock
+            Grid.Row="1" TextWrapping="Wrap" Width="280" HorizontalAlignment="Left" Margin="19,-44,0,0"
+            Text="NOTES: Does work that consumes a lot of energy. On a device with a battery, usage is reported below."/>
+
+        <Grid Grid.Row="2" x:Name="ContentRoot" Margin="19,4,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Border 
+                Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="280" 
+                BorderThickness="2" BorderBrush="{ThemeResource AppBarBorderThemeBrush}">
+                <MediaElement
+                    x:Name="localVideo" Source="/Assets/Media/making-espresso_1280x720.wmv"
+                    AutoPlay="False" IsMuted="False" Volume="1.0" Stretch="Uniform" Visibility="Visible" 
+                    Grid.Row="0" VerticalAlignment="Top" Width="280" Height="150" HorizontalAlignment="Left" IsLooping="True"
+                    AutomationProperties.AutomationId="LocalMediaElement"/>
+            </Border>
+
+            <Grid Grid.Row="1" Width="280" HorizontalAlignment="Left">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="93"/>
+                    <ColumnDefinition Width="94"/>
+                    <ColumnDefinition Width="93"/>
+                </Grid.ColumnDefinitions>
+
+                <Button 
+                    Grid.Row="0" Grid.Column="0" x:Name="startFgWork" Content="start" Click="startFgWork_Click"  Width="92" 
+                    HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,2,0,0" AutomationProperties.AutomationId="StartButton"/>
+                <Button 
+                    Grid.Row="0" Grid.Column="1" x:Name="stopFgWork" Content="stop" Click="stopFgWork_Click"  Width="92" 
+                    HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,2,0,0" IsEnabled="False" AutomationProperties.AutomationId="StopButton"/>
+                <Button 
+                    Grid.Row="0" Grid.Column="2" x:Name="resetFg" Content="reset" Click="resetFg_Click"  Width="92" 
+                    HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,2,0,0" IsEnabled="False" AutomationProperties.AutomationId="ResetButton"/>
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="usage" HorizontalAlignment="Left" Margin="1,0,0,0"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="level" HorizontalAlignment="Left" Margin="1,0,0,0"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="total" HorizontalAlignment="Left" Margin="1,0,0,0"/>
+                <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="conversion" HorizontalAlignment="Left" Margin="1,0,0,0"/>
+
+                <TextBlock 
+                    Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" x:Name="fgUsage" FontWeight="Bold" Text="(unknown)" Margin="24,0,0,0"
+                    AutomationProperties.AutomationId="UsageTextBlock"/>
+                <TextBlock 
+                    Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" x:Name="fgLevel" FontWeight="Bold" Text="(unknown)" Margin="24,0,0,0"
+                    AutomationProperties.AutomationId="LevelTextBlock"/>
+                <TextBlock 
+                    Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" x:Name="fgTotal" FontWeight="Bold" Text="(unknown)" Margin="24,0,0,0"
+                    AutomationProperties.AutomationId="TotalTextBlock"/>                
+                <TextBlock 
+                    Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" x:Name="conversion" FontWeight="Bold" Text="(unknown)" 
+                    VerticalAlignment="Center" Margin="24,0,0,0" AutomationProperties.AutomationId="ConversionTextBlock"/>
+
+            </Grid>
+        </Grid>
+
+        <controls:StatusControl Grid.Row="5" Margin="19,6,0,0" x:Name="status" AutomationProperties.AutomationId="StatusControl"/>
+
+    </Grid>
+</Page>

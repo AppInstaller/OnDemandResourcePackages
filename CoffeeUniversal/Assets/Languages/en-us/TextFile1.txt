@@ -1,0 +1,1 @@
+﻿This sentence should use the default language on the device.

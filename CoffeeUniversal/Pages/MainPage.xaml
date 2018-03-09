@@ -1,0 +1,71 @@
+﻿<Page
+    x:Class="CoffeeUniversal.Pages.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeUniversal.Helpers"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    SizeChanged="Page_SizeChanged">
+
+    <Page.Resources>
+        <Storyboard x:Name="menuStoryboard">
+            <DoubleAnimation
+                Storyboard.TargetName="panelTransform" Storyboard.TargetProperty="Y" From="800" To="0" 
+                Duration="0:0:0.5" AutoReverse="False"/>
+        </Storyboard>
+        <Style TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Width" Value="96"/>
+            <Setter Property="Height" Value="26"/>
+            <Setter Property="Margin" Value="0,0,4,8"/>
+            <Setter Property="Padding" Value="1"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid x:Name="LayoutRoot" >
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/Tiles/Background_1024x768.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" >
+            <TextBlock Text="{StaticResource AppName}" Margin="19,-20,0,-12" Style="{StaticResource HeaderTextBlockStyle}" FontSize="96"
+                       Foreground="{StaticResource FocusVisualWhiteStrokeThemeBrush}" x:Name="appTitle" AutomationProperties.AutomationId="PageTitle"/>
+            <TextBlock x:Name="versionString" Text="1.0.0.0" Style="{StaticResource BaseTextBlockStyle}" Margin="244,-86,0,0" FontSize="8"
+                       Foreground="{StaticResource FocusVisualWhiteStrokeThemeBrush}" />
+            
+        </StackPanel>
+
+        <Grid x:Name="contentPanel" Grid.Row="1" Margin="12,0,0,0">
+            <Grid.RenderTransform>
+                <TranslateTransform x:Name="panelTransform" Y="0"/>
+            </Grid.RenderTransform>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+           <!-- We're adding the menuitem buttons in code -->            
+        </Grid>  
+    </Grid>
+</Page>

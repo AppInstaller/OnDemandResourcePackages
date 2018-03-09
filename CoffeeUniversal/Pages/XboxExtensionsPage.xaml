@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="CoffeeUniversal.Pages.XboxExtensionsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeUniversal.Pages"
+    xmlns:controls="using:CoffeeUniversal.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <controls:PageTitleControl Grid.Row="0" PageTitle="xbox" AutomationProperties.AutomationId="PageTitle"/>
+
+        <StackPanel Grid.Row="1" x:Name="ContentRoot" Margin="19,0,0,0" Width="280" HorizontalAlignment="Left">
+            <Button 
+                x:Name="playSoundClip" Content="play soundclip" Click="playSoundClip_Click" Width="280" IsEnabled="False"
+                AutomationProperties.AutomationId="PlaySoundClipButton"/>
+
+            <Button 
+                x:Name="getUserInfo" Content="get user info" Click="getUserInfo_Click"  Width="280" IsEnabled="False"
+                AutomationProperties.AutomationId="GetUserInfoButton"/>
+            
+            <TextBlock Text="name" Margin="0,0,0,-2" Width="280"/>
+            <TextBox x:Name="userName" IsReadOnly="True" Width="280" AutomationProperties.AutomationId="UserNameTextBox"/>
+
+            <controls:StatusControl Grid.Row="2" x:Name="status" HeaderVisibility="Visible" AutomationProperties.AutomationId="StatusControl"/>
+        </StackPanel>
+        
+    </Grid>
+</Page>

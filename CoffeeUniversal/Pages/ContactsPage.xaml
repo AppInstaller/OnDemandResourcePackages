@@ -1,0 +1,84 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="CoffeeUniversal.Pages.ContactsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeUniversal.Pages"
+    xmlns:controls="using:CoffeeUniversal.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <controls:PageTitleControl PageTitle="contacts" AutomationProperties.AutomationId="PageTitle"/>
+
+        <TextBlock
+            Grid.Row="1" TextWrapping="Wrap" Width="280" HorizontalAlignment="Left" Margin="19,-40,0,0"
+            Text="NOTES: Launches the Contacts Picker and returns selected fields (where available)."/>
+
+        <Grid Grid.Row="2" x:Name="ContentRoot" Margin="19,9.5,19,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Button 
+                x:Name="selectContact" Grid.Row="0" Content="select contact" Click="selectContact_Click"  
+                HorizontalAlignment="Left" VerticalAlignment="Top" Width="280" AutomationProperties.AutomationId="SelectContactButton"/>
+            
+            <Grid Grid.Row="1">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="thumbnail" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="name" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="email" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="phone" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="address" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                
+                <Canvas Grid.Row="0" Grid.Column="1" Background="LightGray"  Height="64" Width="64" Margin="0,4,0,0" HorizontalAlignment="Left">
+                    <Image 
+                        x:Name="thumbnail" Stretch="None" VerticalAlignment="Top" HorizontalAlignment="Left" Height="64" Width="64"
+                        AutomationProperties.AutomationId="ThumbnailImage"/>
+                </Canvas>
+                <TextBox 
+                    Grid.Row="1" Grid.Column="1" x:Name="contactName" HorizontalAlignment="Left" IsEnabled="False" Width="200" Margin="0,4,0,0" 
+                    AutomationProperties.AutomationId="ContactNameTextBox"/>
+                <TextBox 
+                    Grid.Row="2" Grid.Column="1" x:Name="contactEmail" HorizontalAlignment="Left" IsEnabled="False" Width="200" Margin="0,4,0,0"
+                    AutomationProperties.AutomationId="ContactEmailTextBox"/>
+                <TextBox 
+                    Grid.Row="3" Grid.Column="1" x:Name="contactPhone" HorizontalAlignment="Left" IsEnabled="False" Width="200" Margin="0,4,0,0"
+                    AutomationProperties.AutomationId="ContactPhoneTextBox"/>
+                <TextBox 
+                    Grid.Row="4" Grid.Column="1" x:Name="contactAddress" HorizontalAlignment="Left" IsEnabled="False" Width="200" Margin="0,4,0,0"
+                    AutomationProperties.AutomationId="ContactAddressTextBox"/>
+            </Grid>
+
+            <controls:StatusControl Grid.Row="2" Margin="0,6,0,0" x:Name="status" AutomationProperties.AutomationId="StatusControl"/>
+
+        </Grid>
+        
+    </Grid>
+</Page>

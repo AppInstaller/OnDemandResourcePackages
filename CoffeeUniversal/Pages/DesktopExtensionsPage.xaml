@@ -1,0 +1,37 @@
+﻿<Page
+    x:Class="CoffeeUniversal.Pages.DesktopExtensionsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeUniversal.Pages"
+    xmlns:controls="using:CoffeeUniversal.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <controls:PageTitleControl Grid.Row="0" PageTitle="desktop" AutomationProperties.AutomationId="PageTitle"/>
+
+        <StackPanel Grid.Row="1" x:Name="ContentRoot" Margin="19,0,0,0" Width="280" HorizontalAlignment="Left">
+            <TextBlock 
+                TextWrapping="Wrap" Width="280" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Text="NOTES: This page tests the Desktop extension SDK. The feature should work on Desktop but should fail gracefully on all other devices."/>
+
+            <Button 
+                x:Name="showSettings" Content="show settings" Width="280" IsEnabled="False" Click="showSettings_Click"
+                AutomationProperties.AutomationId="ShowSettingsButton"/>
+
+            <controls:StatusControl Grid.Row="2" x:Name="status" HeaderVisibility="Visible" AutomationProperties.AutomationId="StatusControl"/>
+        </StackPanel>
+
+    </Grid>
+</Page>

@@ -1,0 +1,72 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="CoffeeUniversal.Pages.StoragePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeUniversal.Pages"
+    xmlns:controls="using:CoffeeUniversal.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <controls:PageTitleControl PageTitle="settings" x:Name="pageTitleControl" AutomationProperties.AutomationId="PageTitle"/>
+
+        <TextBlock 
+            Grid.Row="1" TextWrapping="Wrap" Width="280" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="19,-36,0,0"
+            CharacterSpacing="-50"
+            Text="Update local storage/settings, then navigate out of this page and back to see the text persists. You can also copy the local storage item to the clipboard. Enterprise settings are read-only."/>
+        
+        <Grid Grid.Row="2" x:Name="ContentRoot" Margin="19,0,19,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="local storage" Margin="0,8,0,0" Width="280" HorizontalAlignment="Left"/>
+
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <TextBox 
+                    x:Name="storageItem" Margin="0,0,0,2" Width="139" HorizontalAlignment="Left"
+                    AutomationProperties.AutomationId="StorageItemTextBox"/>            
+                <Button 
+                    Content="copy" x:Name="Copy" Click="Copy_Click" Margin="0,0,0,2" Width="139" HorizontalAlignment="Left"
+                    AutomationProperties.AutomationId="CopyButton"/>
+            </StackPanel>
+            
+            <TextBlock Grid.Row="2" Text="local settings" Margin="0,8,0,0" Width="280" HorizontalAlignment="Left"/>
+            <TextBox 
+                Grid.Row="3" x:Name="settingsItem" Width="280" HorizontalAlignment="Left"
+                AutomationProperties.AutomationId="SettingsItemTextBox"/>
+
+            <TextBlock Grid.Row="4" Text="enterprise settings" Margin="0,8,0,0" Width="280" HorizontalAlignment="Left"/>
+            <StackPanel Grid.Row="5" Orientation="Horizontal">
+                <TextBox 
+                    x:Name="enterpriseWelcome" Width="139" HorizontalAlignment="Left" IsReadOnly="True"
+                    AutomationProperties.AutomationId="EnterpriseWelcomeTextBox"/>
+                <TextBox 
+                    x:Name="enterpriseDescription" Width="139" HorizontalAlignment="Left" IsReadOnly="True"
+                    AutomationProperties.AutomationId="EnterpriseDescriptionTextBox"/>
+            </StackPanel>
+
+            <controls:StatusControl Grid.Row="6" Margin="0,6,0,0" x:Name="status" HeaderVisibility="Visible" AutomationProperties.AutomationId="StatusControl"/>
+        </Grid>      
+    </Grid>
+</Page>

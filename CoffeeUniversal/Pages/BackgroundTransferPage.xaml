@@ -1,0 +1,72 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="CoffeeUniversal.Pages.BackgroundTransferPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeUniversal.Pages"
+    xmlns:controls="using:CoffeeUniversal.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <controls:PageTitleControl PageTitle="b/g transfers" AutomationProperties.AutomationId="PageTitle"/>
+
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,-24,19,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="source url" HorizontalAlignment="Left" Width="80"/>
+            <TextBox 
+                Grid.Row="1" x:Name="sourceUrl" Text="http://video.ch9.ms/ch9/6601/33748cc5-39fc-424a-ad36-ec9097166601/uasession1.mp3" 
+                HorizontalAlignment="Left" Width="280" Height="80" TextWrapping="Wrap" AutomationProperties.AutomationId="SourceUrlTextBox"/>
+            
+            <TextBlock Grid.Row="2" Text="local file" HorizontalAlignment="Left" Width="80" Margin="0,6,0,0"/>
+            <TextBox 
+                Grid.Row="3" x:Name="localFile" HorizontalAlignment="Left" Text="uasession1.mp3" Width="280" 
+                AutomationProperties.AutomationId="LocalFileTextBox"/>
+            
+            <Grid Grid.Row="4" Margin="0,4,0,0">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+				<Button 
+                    Grid.Row="0" Grid.Column="0" Margin="0,0,4,0" x:Name="start" Width="138" Content="start" Click="start_Click" 
+                    HorizontalAlignment="Left" AutomationProperties.AutomationId="StartButton"/>                      
+				<Button 
+                    Grid.Row="0" Grid.Column="1" Margin="0,0,0,0" x:Name="cancel" Width="138" Content="cancel" Click="cancel_Click" 
+                    HorizontalAlignment="Left" AutomationProperties.AutomationId="CancelButton"/>
+				<Button 
+                    Grid.Row="1" Grid.Column="0" Margin="0,4,0,0" x:Name="pause" Width="138" Content="pause" Click="pause_Click" 
+                    HorizontalAlignment="Left" AutomationProperties.AutomationId="PauseButton"/>
+				<Button 
+                    Grid.Row="1" Grid.Column="1" Margin="0,4,0,0" x:Name="resume" Width="138" Content="resume" Click="resume_Click" 
+                    HorizontalAlignment="Left" AutomationProperties.AutomationId="ResumeButton"/>
+			</Grid>
+
+            <controls:StatusControl Grid.Row="5" Margin="0,6,0,0" x:Name="status" HeaderVisibility="Visible" AutomationProperties.AutomationId="StatusControl"/>
+        </Grid>              
+    </Grid>
+</Page>

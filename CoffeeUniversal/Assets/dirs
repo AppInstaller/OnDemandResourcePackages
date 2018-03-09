@@ -1,0 +1,11 @@
+DIRS = \
+    AppBar \
+    Languages \
+    LockScreen \
+    Media \
+    Orientation \
+    Scales \
+    SecondaryTiles \
+    Share \
+    Tiles \
+    

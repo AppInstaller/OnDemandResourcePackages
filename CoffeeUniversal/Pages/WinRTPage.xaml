@@ -1,0 +1,56 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="CoffeeUniversal.Pages.WinRTPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeUniversal.Pages"
+    xmlns:controls="using:CoffeeUniversal.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <controls:PageTitleControl PageTitle="winrt" AutomationProperties.AutomationId="PageTitle"/>
+
+        <TextBlock
+            Grid.Row="1" TextWrapping="Wrap" Width="280" HorizontalAlignment="Left" Margin="19,-40,0,0"
+            Text="NOTES: This page exercises the ability to use a separate WinRT component (packaged within the Coffee app)."/>
+
+
+        <Grid Grid.Row="2" x:Name="ContentRoot" Margin="19,24,19,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="type something" HorizontalAlignment="Left" Width="280"/>
+            <TextBox 
+                Grid.Row="1" x:Name="inputString" HorizontalAlignment="Left" Width="280" KeyDown="inputString_KeyDown"
+                AutomationProperties.AutomationId="InputStringTextBox"/>
+            
+            <Button 
+                Grid.Row="2" x:Name="getStringLength" Content="get string length" Click="getStringLength_Click" 
+                HorizontalAlignment="Left" Width="280" Margin="0,2,0,0" AutomationProperties.AutomationId="GetStringLengthButton"/>
+            
+            <TextBlock Grid.Row="3" Text="length" Margin="0,8,0,0" HorizontalAlignment="Left" Width="280"/>
+            <TextBox 
+                Grid.Row="4" x:Name="stringLength" HorizontalAlignment="Left" Width="280" IsReadOnly="True"
+                AutomationProperties.AutomationId="StringLengthTextBox"/>
+        </Grid>
+        
+    </Grid>
+</Page>

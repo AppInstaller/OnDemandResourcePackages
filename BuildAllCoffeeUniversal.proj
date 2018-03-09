@@ -1,0 +1,25 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <ItemGroup>
+        <ProjectToBuild Include="CoffeeUniversal.sln">
+            <Properties>Configuration=Debug;Platform=ARM</Properties>
+        </ProjectToBuild>
+        <ProjectToBuild Include="CoffeeUniversal.sln">
+            <Properties>Configuration=Debug;Platform=x64</Properties>
+        </ProjectToBuild>
+        <ProjectToBuild Include="CoffeeUniversal.sln">
+            <Properties>Configuration=Debug;Platform=x86</Properties>
+        </ProjectToBuild>
+        <ProjectToBuild Include="CoffeeUniversal.sln">
+            <Properties>Configuration=Release;Platform=ARM</Properties>
+        </ProjectToBuild>
+        <ProjectToBuild Include="CoffeeUniversal.sln">
+            <Properties>Configuration=Release;Platform=x64</Properties>
+        </ProjectToBuild>
+        <ProjectToBuild Include="CoffeeUniversal.sln">
+            <Properties>Configuration=Release;Platform=x86</Properties>
+        </ProjectToBuild>
+    </ItemGroup>
+    <Target Name="Build">
+        <MSBuild Projects="@(ProjectToBuild)" BuildInParallel="true" />
+    </Target>
+</Project>

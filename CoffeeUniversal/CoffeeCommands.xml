@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.1">
+  <CommandSet xml:lang="en-us" Name="CoffeeCommandSet_en-us">
+    <CommandPrefix>Coffee App,</CommandPrefix>
+    <Example>Coffee App, goto the Memory page</Example>
+
+    <Command Name="goToAPage">
+      <Example>go to the Memory page</Example>
+      <ListenFor>[go to] [the] {page} [page]</ListenFor>
+      <Feedback>Going to the "{page}" page in the Coffee App</Feedback>
+      <!-- The actual page to navigate to is calculated by the activation handler -->
+      <Navigate Target="MainPage.xaml"/>
+    </Command>
+
+    <Command Name="saySomething">
+      <Example>say "hello world"</Example>
+      <ListenFor>say {message}</ListenFor>
+      <Feedback>asking the Coffee App to say "{message}"</Feedback>
+      <Navigate Target="SpeechPage.xaml"/>
+    </Command>
+
+    <Command Name="playVideo">
+      <Example>play the "espresso" video</Example>
+      <ListenFor>play [the] {video} video</ListenFor>
+      <Feedback>starting the "{video}" video in the Coffee App</Feedback>
+      <Navigate Target="MediaPage.xaml"/>
+    </Command>
+
+    <PhraseList Label="page">
+      <!-- Items are dynamically added to the list for each of the menu items in the view model -->
+    </PhraseList>
+
+    <PhraseTopic Label="message" Scenario="Short Message"/>
+
+    <PhraseTopic Label="video" Scenario="Media Playback"/>
+
+  </CommandSet>
+</VoiceCommands>

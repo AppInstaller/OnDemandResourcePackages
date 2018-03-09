@@ -1,0 +1,88 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="CoffeeUniversal.Pages.AppBarPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeUniversal.Pages"
+    xmlns:controls="using:CoffeeUniversal.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <controls:PageTitleControl PageTitle="appbar" AutomationProperties.AutomationId="PageTitle"/>
+
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,-40,19,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock 
+                Grid.Row="0" TextWrapping="Wrap" Width="280" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Text="NOTES: Tap the AppBar buttons to add items to the list. Right-click or long-tap the image to get a context menu. In the TextBox, select some text then (on Desktop) right-click for another menu, or (on Mobile) see the clipboard icon."/>
+
+            <Border
+                Grid.Row="1" Margin="0,2,0,0" BorderThickness="2" BorderBrush="{ThemeResource AppBarBorderThemeBrush}" Width="280" 
+                HorizontalAlignment="Left" Height="75" VerticalAlignment="Top">
+                <ListView x:Name="eventList" SelectionChanged="eventList_SelectionChanged"/>
+            </Border>
+
+            <Grid Grid.Row="2" Margin="0,2,0,2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="110"/>
+                    <ColumnDefinition Width="170"/>
+                </Grid.ColumnDefinitions>
+                <Image 
+                    Grid.Column="0" x:Name="coffeeImage" Stretch="Uniform" Source="/Assets/AppBar/espresso.jpg" Width="110" Height="75" 
+                    HorizontalAlignment="Left" VerticalAlignment="Top"
+                    AutomationProperties.AutomationId="CoffeeImage"/>
+                <TextBox 
+                    Grid.Column="1" x:Name="sampleText" Margin="2,0,0,0" IsReadOnly="True" TextWrapping="Wrap" Width="168" Height="75" 
+                    Text="Lorem ipsum dolor sit amet consectet." HorizontalAlignment="Left" VerticalAlignment="Top"
+                    AutomationProperties.AutomationId="SampleTextBox"/>
+            </Grid>
+
+            <controls:StatusControl Grid.Row="3" x:Name="status" AutomationProperties.AutomationId="StatusControl"/>
+
+        </Grid>
+    </Grid>
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton x:Name="appBarLatte" Label="latte" Height="60" Click="appBarLatte_Click" AutomationProperties.AutomationId="LatteButton">
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="ms-appx:///Assets/AppBar/icon-black-latte.png"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton x:Name="appBarCapuccino" Label="cappuccino" Height="60" Click="appBarCappuccino_Click" AutomationProperties.AutomationId="CappuccinoButton">
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="ms-appx:///Assets/AppBar/icon-black-cappuccino.png"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton x:Name="appBarAmericano" Label="drip" Height="60" Click="appBarAmericano_Click" AutomationProperties.AutomationId="AmericanoButton">
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="ms-appx:///Assets/AppBar/icon-black-americano.png"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton x:Name="appBarEspresso" Label="espresso" Height="60" Click="appBarEspresso_Click" AutomationProperties.AutomationId="EspressoButton">
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="ms-appx:///Assets/AppBar/icon-black-espresso.png"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+</Page>
